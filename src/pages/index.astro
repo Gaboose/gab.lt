@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import ComicPageLayout from '../layouts/ComicPageLayout.astro'
+
+const entries = (await getCollection('comics')).filter((e) => !e.data.hidden);
+const entry = entries.at(-1);
+
+---
+{entry && <ComicPageLayout entry={entry} /> }

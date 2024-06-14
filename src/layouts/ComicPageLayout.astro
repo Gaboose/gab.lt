@@ -1,0 +1,15 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from "./BaseLayout.astro";
+import Comic from "../components/Comic.astro";
+
+interface Props {
+	entry: CollectionEntry<'comics'>
+}
+
+const { entry } = Astro.props;
+
+---
+<BaseLayout pageTitle={entry.data.title}>
+	<Comic entry={entry} />
+</BaseLayout>

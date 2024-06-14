@@ -1,0 +1,7 @@
+---
+const { prevSlug, nextSlug } = Astro.props;
+---
+<div class="nav-links">
+    {prevSlug && <a href=`/${prevSlug}` data-astro-prefetch>⇦</a> }
+    {nextSlug && <a href=`/${nextSlug}` data-astro-prefetch>➡</a> }
+</div>

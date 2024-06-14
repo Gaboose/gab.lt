@@ -1,0 +1,98 @@
+html {
+    background-color: #f1f5f9;
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: auto;
+    width: 100%;
+    max-width: 120ch;
+    padding: 0;
+    line-height: 1.5;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    margin: 1rem 0;
+    font-size: 2.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  }
+
+  /* nav styles */
+  .hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: #ff9776;
+  }
+
+.snug h1 {
+  padding-left: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-links {
+  margin: 0;
+  position: relative;
+  top: 5px;
+  padding-right: 1rem;
+  flex: 1;
+  text-align: right;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: slategray;
+}
+
+.expanded {
+  display: unset;
+}
+
+@media screen and (min-width: 636px) {
+  .nav-links {
+  }
+}
+
+html.dark {
+  background-color: #0d0950;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+iframe {
+  border: 0px solid
+}
+
+.snug {
+  display: inline-block;
+  text-align: left;
+}
+
+.ontop {
+  display: grid;
+}
+
+.ontop > * {
+  grid-column: 1;
+  grid-row: 1;
+}

@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+import Arrows from './Arrows.astro'
+
+interface Props {
+	entry: CollectionEntry<'comics'>
+}
+
+const { entry } = Astro.props;
+const comicURLBase = "https://gaboose.github.io/nlh#";
+
+const entries = (await getCollection('comics')).filter((e) => !e.data.hidden);
+const i = entries.findIndex(function(e) {return entry.slug == e.slug});
+const prevSlug = i > 0 ? entries.at(i-1)?.slug : undefined;
+const nextSlug = i != -1 ? entries.at(i+1)?.slug : undefined;
+
+---
+<div class="snug">
+    <div style="display: flex">
+        <h1>{entry.data.title}</h1>
+        <Arrows prevSlug={prevSlug} nextSlug={nextSlug} />
+    </div>
+    <div class="ontop">
+        <iframe style="background-color: black; border: 0;" title={entry.data.alt} width="640" height="640" src={comicURLBase + entry.slug}></iframe>
+    </div>
+</div>
