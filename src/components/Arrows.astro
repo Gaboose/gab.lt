@@ -2,6 +2,21 @@
 const { prevSlug, nextSlug } = Astro.props;
 ---
 <div class="nav-links">
-    {prevSlug && <a href=`/${prevSlug}` data-astro-prefetch>⇦</a> }
-    {nextSlug && <a href=`/${nextSlug}` data-astro-prefetch>➡</a> }
+
+{prevSlug && <a href=`/${prevSlug}` data-astro-prefetch>
+<svg viewBox="0 -10 30 20" height="1rem" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path id="arrow-left" d="M 0 0 L 12 -10 v 5 h 17 v 10 h -17 v 5 Z" fill="black"/>
+</defs>
+<use href="#arrow-left"/>
+</svg></a> }
+
+{nextSlug && <a href=`/${nextSlug}` data-astro-prefetch>
+<svg viewBox="0 -10 30 20" height="1rem" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path id="arrow-left" d="M 0 0 L 12 -10 v 5 h 17 v 10 h -17 v 5 Z" fill="black"/>
+</defs>
+<g transform="translate(30, 0) scale(-1, 1)"><use href="#arrow-left"/></g>
+</svg></a> }
+
 </div>

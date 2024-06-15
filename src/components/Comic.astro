@@ -1,8 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 
+import FullScreen from './FullScreen.astro';
 import Arrows from './Arrows.astro'
 
 interface Props {
@@ -23,7 +23,8 @@ const nextSlug = i != -1 ? entries.at(i+1)?.slug : undefined;
         <h1>{entry.data.title}</h1>
         <Arrows prevSlug={prevSlug} nextSlug={nextSlug} />
     </div>
-    <div class="ontop">
-        <iframe style="background-color: black; border: 0;" title={entry.data.alt} width="640" height="640" src={comicURLBase + entry.slug}></iframe>
+    <div class="ontop fullscreen">
+        <iframe style="background-color: black; border: 0;" title={entry.data.alt} src={comicURLBase + entry.slug} width="640" height="480"></iframe>
+        <FullScreen />
     </div>
 </div>

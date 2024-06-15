@@ -1,0 +1,45 @@
+<svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" class="fullscreen-icon">
+    <defs>
+        <path id="corner" d="M 0 0 h 10 v 5 h -5 v 5 h -5 Z" fill="black"/>
+    </defs>
+    <use href="#corner" />
+    <g transform="translate(25, 0) scale(-1, 1)"><use href="#corner" /></g>
+    <g transform="translate(0, 25) scale(1, -1)"><use href="#corner" /></g>
+    <g transform="translate(25, 25) scale(-1, -1)"><use href="#corner" /></g>
+</svg>
+<svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" class="exit-fullscreen-icon">
+    <g transform="translate(10, 10) scale(-1, -1)"><use href="#corner" /></g>
+    <g transform="translate(15, 10) scale(1, -1)"><use href="#corner" /></g>
+    <g transform="translate(10, 15) scale(-1, 1)"><use href="#corner" /></g>
+    <g transform="translate(15, 15) scale(1, 1)"><use href="#corner" /></g>
+</svg>
+<script>
+function fullscreenOn() {
+    const iframe = document.querySelector('.fullscreen');
+    if (!iframe) return;
+    iframe.classList.add('fullscreen-on');
+
+    if (!history.state?.fullscreen) {
+        history.pushState({"fullscreen": true}, "", "");
+    }
+}
+function fullscreenOff() {
+    const iframe = document.querySelector('.fullscreen');
+    if (iframe) { iframe.classList.remove('fullscreen-on'); }
+}
+document.querySelector('.fullscreen-icon')?.addEventListener('click', () => {
+    fullscreenOn();
+});
+document.querySelector('.exit-fullscreen-icon')?.addEventListener('click', () => {
+    fullscreenOff();
+});
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        fullscreenOff();
+    }
+}, false);
+window.addEventListener("popstate", (event) => {
+    fullscreenOff();
+});
+</script>
+  
